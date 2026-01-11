@@ -5,6 +5,18 @@ import User from "../model/user.schema.js";
 import Seller from "../model/seller.schema.js";
 import Admin from "../model/admin.schema.js";
 
+// ✅ Debug: Check if JWT_TOKEN is loaded
+console.log("JWT_TOKEN loaded:", process.env.JWT_TOKEN ? "✅ Yes" : "❌ No");
+
+// ✅ Get JWT secret with validation
+const getJWTSecret = () => {
+  const secret = process.env.JWT_TOKEN;
+  if (!secret) {
+    throw new Error("JWT_TOKEN environment variable is not set!");
+  }
+  return secret;
+};
+
 // Model mapping
 const models = {
   user: User,
@@ -60,6 +72,18 @@ const Login = async (req, res) => {
       await user.save();
     }
 
+    // ✅ Get JWT secret safely
+    let jwtSecret;
+    try {
+      jwtSecret = getJWTSecret();
+    } catch (error) {
+      console.error("JWT Secret Error:", error.message);
+      return res.status(500).json({
+        message: "Server configuration error",
+        success: false,
+      });
+    }
+
     // Generate JWT token
     const token = jwt.sign(
       {
@@ -67,15 +91,15 @@ const Login = async (req, res) => {
         email: user.email,
         role: normalizedRole,
       },
-      process.env.JWT_TOKEN,
+      jwtSecret, // ✅ Use validated secret
       { expiresIn: "7d" }
     );
 
     // Set cookie
     res.cookie("token", token, {
       httpOnly: true,
-      secure: true,
-      sameSite: "none",
+      secure: process.env.NODE_ENV === "production", // ✅ Only secure in production
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
       path: "/",
     });

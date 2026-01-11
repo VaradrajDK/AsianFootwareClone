@@ -96,10 +96,14 @@ const Login = async (req, res) => {
     );
 
     // Set cookie
+    const isProduction =
+      process.env.NODE_ENV === "production" ||
+      process.env.VERCEL_ENV === "production";
+
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // ✅ Only secure in production
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      secure: isProduction,
+      sameSite: isProduction ? "none" : "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
       path: "/",
     });
@@ -260,19 +264,27 @@ const getLoggedInUser = async (req, res) => {
 
 const Logout = async (req, res) => {
   try {
+    const isProduction =
+      process.env.NODE_ENV === "production" ||
+      process.env.VERCEL_ENV === "production";
+
     res.clearCookie("token", {
       httpOnly: true,
-      secure: true,
-      sameSite: "none",
+      secure: isProduction,
+      sameSite: isProduction ? "none" : "lax",
       path: "/",
     });
 
-    return res
-      .status(200)
-      .json({ message: "Logout successful", success: true });
+    return res.status(200).json({
+      message: "Logout successful",
+      success: true,
+    });
   } catch (error) {
     console.error("Logout error:", error);
-    return res.status(500).json({ message: "Server error", success: false });
+    return res.status(500).json({
+      message: "Server error",
+      success: false,
+    });
   }
 };
 

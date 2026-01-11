@@ -1,0 +1,50 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.headerVisible {
+  transform: translateY(0);
+}
+
+.headerHidden {
+  transform: translateY(-100%);
+}
+
+.headerScrolled {
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 
+  Spacer height = Topbar height + OfferBar height + Navbar height
+  Adjust these values based on your actual component heights
+*/
+.headerSpacer {
+  height: 80px; /* Example: 30px + 30px + 80px = 140px */
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .headerSpacer {
+    height: 130px; /* Adjust for tablet */
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .headerSpacer {
+    height: 120px; /* Adjust for mobile */
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .headerSpacer {
+    height: 110px; /* Adjust for small mobile */
+  }
+}

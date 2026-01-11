@@ -1,0 +1,303 @@
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  overflow-y: auto;
+  min-height: calc(100vh - 70px);
+  position: relative;
+}
+
+/* Main content header styles */
+.main-content h1 {
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  font-size: 2rem;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 0.75rem;
+  letter-spacing: -0.5px;
+}
+
+.main-content h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #2c3e50);
+  border-radius: 2px;
+}
+
+/* Content containers */
+.dashboard-content,
+.add-product-content,
+.view-products-content,
+.view-order-content,
+.analytics-content {
+  animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add subtle pattern overlay to content areas */
+.dashboard-content::before,
+.add-product-content::before,
+.view-products-content::before,
+.view-order-content::before,
+.analytics-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle at top right, rgba(52, 152, 219, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Content specific styling */
+.dashboard-content {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+}
+
+.add-product-content {
+  background: linear-gradient(145deg, #ffffff, #f9fbfd);
+}
+
+.view-products-content {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+}
+
+.view-order-content {
+  background: linear-gradient(145deg, #ffffff, #f9fbfd);
+}
+
+.analytics-content {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+}
+
+/* Page headers within content */
+.add-product-content h1,
+.view-products-content h1,
+.view-order-content h1,
+.analytics-content h1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* .add-product-content h1::before {
+  content: '📦';
+  font-size: 1.8rem;
+} */
+
+/* .view-products-content h1::before {
+  content: '👁️';
+  font-size: 1.8rem;
+} */
+
+/* .view-order-content h1::before {
+  content: '🛒';
+  font-size: 1.8rem;
+} */
+
+.analytics-content h1::before {
+  content: '📊';
+  font-size: 1.8rem;
+}
+
+/* Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Breadcrumb or path indicator (optional) */
+.content-path {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.content-path a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.content-path a:hover {
+  color: #2c3e50;
+  text-decoration: underline;
+}
+
+.content-path .separator {
+  color: #bdc3c7;
+  font-size: 0.8rem;
+}
+
+/* Content wrapper for better spacing */
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .main-content {
+    padding: 1.5rem;
+  }
+  
+  .dashboard-content,
+  .add-product-content,
+  .view-products-content,
+  .view-order-content,
+  .analytics-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+    min-height: calc(100vh - 60px);
+  }
+  
+  .main-content h1 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .dashboard-content,
+  .add-product-content,
+  .view-products-content,
+  .view-order-content,
+  .analytics-content {
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+  }
+  
+  .main-content h1::after {
+    width: 40px;
+    height: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 0.75rem;
+  }
+  
+  .main-content h1 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  
+  .dashboard-content,
+  .add-product-content,
+  .view-products-content,
+  .view-order-content,
+  .analytics-content {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+}
+
+/* Scrollbar styling */
+.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  border-radius: 4px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #2980b9, #2c3e50);
+}
+
+/* Loading state */
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Empty state styling */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #7f8c8d;
+}
+
+.empty-state i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #bdc3c7;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.empty-state p {
+  font-size: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}

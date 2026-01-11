@@ -1,0 +1,308 @@
+.filtersContainer {
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: static;
+  top: 0;
+  max-height: none;
+  overflow-y: visible;
+  margin-bottom: 16px;
+}
+
+/* Common styles */
+.section {
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.divider {
+  height: 1px;
+  background: #eee;
+  margin: 16px 0;
+}
+
+/* Sort By section */
+.sortOption {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+}
+
+.sortInput {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* Toggle header */
+.toggleHeader {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.toggleTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Gender section */
+.genderOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.genderOption {
+  display: flex;
+  align-items: center;
+  color: #555;
+  cursor: pointer;
+}
+
+/* Price Range section */
+.priceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.priceButton {
+  padding: 8px 4px;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #fff;
+  color: #555;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  min-height: 36px;
+}
+
+.priceButton:hover {
+  border-color: #000;
+}
+
+.priceButton.selected {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+
+/* Size section */
+.sizeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.sizeButton {
+  padding: 8px 4px;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #fff;
+  color: #555;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  min-height: 36px;
+}
+
+.sizeButton:hover {
+  border-color: #000;
+}
+
+.sizeButton.selected {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+
+/* Shoe Type section */
+.typeOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.typeOption {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+}
+
+.typeInput {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .filtersContainer {
+    padding: 20px;
+    position: sticky;
+    top: 20px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    margin-bottom: 0;
+  }
+  
+  .sectionTitle,
+  .toggleTitle {
+    font-size: 18px;
+  }
+  
+  .priceButton,
+  .sizeButton {
+    font-size: 13px;
+    padding: 8px 5px;
+  }
+  
+  .priceGrid,
+  .sizeGrid {
+    gap: 10px;
+  }
+  
+  .divider {
+    margin: 20px 0;
+  }
+}
+/* Add these styles to your existing Filters.module.css */
+
+.filterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.filterTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.clearAllButton {
+  background: none;
+  border: 1px solid #dc2626;
+  color: #dc2626;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clearAllButton:hover {
+  background: #dc2626;
+  color: white;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 767px) {
+  .filterHeader {
+    padding: 0 12px 10px 12px;
+  }
+  
+  .clearAllButton {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+}
+/* Add these to your existing Filters.module.css */
+
+.filterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.filterTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.headerButtons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.clearAllButton {
+  background: none;
+  border: 1px solid #dc2626;
+  color: #dc2626;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clearAllButton:hover {
+  background: #dc2626;
+  color: white;
+}
+
+.syncButton {
+  background: none;
+  border: 1px solid #3b82f6;
+  color: #3b82f6;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.syncButton:hover {
+  background: #3b82f6;
+  color: white;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 767px) {
+  .filterHeader {
+    padding: 0 12px 10px 12px;
+  }
+  
+  .clearAllButton,
+  .syncButton {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  
+  .headerButtons {
+    gap: 6px;
+  }
+}
+

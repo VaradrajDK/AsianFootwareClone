@@ -1,0 +1,40 @@
+.pageNavigation {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #dcdcdc;
+  padding: 8px 0;
+
+}
+
+.centerBox {
+  max-width: 1200px;
+  margin: 0 180px;
+  text-align: left;
+  font-size: 14px;
+  color: #444;
+  font-weight: 500;
+}
+
+.breadcrumbItem {
+  display: inline-block;
+}
+
+.link {
+  text-decoration: none;
+  color: #444;
+  transition: 0.2s ease;
+}
+
+.link:hover {
+  color: #000;
+}
+
+.separator {
+  margin: 0 6px;
+  color: #777;
+}
+
+.current {
+  color: #000;
+  font-weight: 700;
+}

@@ -1,0 +1,254 @@
+/* SingleProductPage.module.css */
+
+.pageContainer {
+  background-color: #f0f2f5;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  max-width: 1200px;
+  width: 80%;
+  align-items: flex-start;
+}
+
+/* Loading Container */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: 40px;
+  width: 100%;
+}
+
+.loadingContainer p {
+  margin-top: 20px;
+  color: #666;
+  font-size: 16px;
+}
+
+/* Error Container */
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: 40px;
+  text-align: center;
+  width: 100%;
+}
+
+.errorContainer h2 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.errorContainer p {
+  color: #666;
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+
+.backButton {
+  padding: 12px 30px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.backButton:hover {
+  background: #0056b3;
+}
+
+/* ========== RESPONSIVE BREAKPOINTS ========== */
+
+/* Large Tablets and Small Desktops (900px - 1200px) */
+@media (max-width: 1200px) {
+  .contentWrapper {
+    width: 90%;
+    max-width: 1000px;
+  }
+}
+
+/* Tablets (768px - 900px) */
+@media (max-width: 900px) {
+  .contentWrapper {
+    flex-direction: column;
+    width: 95%;
+    gap: 30px;
+  }
+
+  .pageContainer {
+    padding: 15px;
+  }
+}
+
+/* Large Phones (576px - 768px) */
+@media (max-width: 768px) {
+  .contentWrapper {
+    width: 100%;
+    gap: 25px;
+  }
+
+  .pageContainer {
+    padding: 12px;
+  }
+
+  .loadingContainer,
+  .errorContainer {
+    min-height: 350px;
+    padding: 30px 20px;
+  }
+
+  .errorContainer h2 {
+    font-size: 22px;
+  }
+
+  .errorContainer p {
+    font-size: 15px;
+  }
+
+  .backButton {
+    padding: 10px 25px;
+    font-size: 13px;
+  }
+}
+
+/* Medium Phones (480px - 576px) */
+@media (max-width: 576px) {
+  .pageContainer {
+    padding: 10px;
+  }
+
+  .contentWrapper {
+    gap: 20px;
+  }
+
+  .loadingContainer,
+  .errorContainer {
+    min-height: 300px;
+    padding: 25px 15px;
+  }
+
+  .errorContainer h2 {
+    font-size: 20px;
+  }
+
+  .errorContainer p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .backButton {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
+
+/* Small Phones (below 480px) */
+@media (max-width: 480px) {
+  .pageContainer {
+    padding: 8px;
+  }
+
+  .contentWrapper {
+    gap: 15px;
+  }
+
+  .loadingContainer,
+  .errorContainer {
+    min-height: 280px;
+    padding: 20px 12px;
+  }
+
+  .loadingContainer p {
+    font-size: 14px;
+  }
+
+  .errorContainer h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .errorContainer p {
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+
+  .backButton {
+    padding: 8px 18px;
+    font-size: 12px;
+  }
+}
+
+/* Extra Small Phones (below 360px) */
+@media (max-width: 360px) {
+  .pageContainer {
+    padding: 5px;
+  }
+
+  .contentWrapper {
+    gap: 12px;
+  }
+
+  .loadingContainer,
+  .errorContainer {
+    min-height: 250px;
+    padding: 15px 10px;
+  }
+
+  .errorContainer h2 {
+    font-size: 16px;
+  }
+
+  .errorContainer p {
+    font-size: 12px;
+  }
+
+  .backButton {
+    padding: 8px 15px;
+    font-size: 11px;
+  }
+}
+
+/* ========== LANDSCAPE ORIENTATION FIXES ========== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .loadingContainer,
+  .errorContainer {
+    min-height: 200px;
+    padding: 20px;
+  }
+
+  .pageContainer {
+    min-height: auto;
+    padding: 10px;
+  }
+}
+
+/* ========== HIGH DPI / RETINA DISPLAYS ========== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .backButton {
+    border-width: 0.5px;
+  }
+}
+
+/* ========== ACCESSIBILITY - PREFER REDUCED MOTION ========== */
+@media (prefers-reduced-motion: reduce) {
+  .backButton {
+    transition: none;
+  }
+}

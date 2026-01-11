@@ -1,0 +1,193 @@
+.wrapper { 
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.emptyState p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.card { 
+  padding: 24px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  position: relative;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: #ddd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.defaultCard {
+  border-color: #0d6efd;
+  background: #f8fbff;
+}
+
+.defaultBadge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #0d6efd;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.address { 
+  line-height: 1.6; 
+  color: #333;
+  margin: 0 0 15px 0;
+  font-size: 15px;
+}
+
+.defaultBtn { 
+  background: none; 
+  border: none; 
+  color: #0d6efd; 
+  cursor: pointer; 
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  margin-bottom: 15px;
+  transition: color 0.2s ease;
+}
+
+.defaultBtn:hover {
+  color: #0b5ed7;
+  text-decoration: underline;
+}
+
+.actions { 
+  display: flex;
+  gap: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #e9ecef;
+}
+
+.actions button { 
+  padding: 0;
+  border: none; 
+  background: none; 
+  cursor: pointer; 
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.editBtn {
+  color: #0d6efd;
+}
+
+.editBtn:hover {
+  color: #0b5ed7;
+  text-decoration: underline;
+}
+
+.removeBtn {
+  color: #dc3545;
+}
+
+.removeBtn:hover {
+  color: #c82333;
+  text-decoration: underline;
+}
+
+.addBtn {
+  width: 100%;
+  padding: 16px;
+  background: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.addBtn:hover {
+  background: #0b5ed7;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+}
+
+.addBtn:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 0;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+  
+  .actions {
+    gap: 15px;
+  }
+  
+  .actions button {
+    font-size: 13px;
+  }
+  
+  .addBtn {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 16px;
+  }
+  
+  .address {
+    font-size: 14px;
+  }
+  
+  .actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .actions button {
+    text-align: left;
+    padding: 8px 0;
+  }
+  
+  .defaultBadge {
+    position: static;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+}

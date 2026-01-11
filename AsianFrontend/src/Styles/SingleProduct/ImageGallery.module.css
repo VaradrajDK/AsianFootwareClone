@@ -1,0 +1,576 @@
+/* ImageGallery.module.css */
+
+.galleryContainer {
+  display: flex;
+  gap: 20px;
+  flex: 1 1 60%;
+  align-items: flex-start;
+}
+
+/* ===============================
+   Left Column Layout
+================================ */
+.thumbnailColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Scrollable thumbnails */
+.thumbnailList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 2px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.thumbnailList::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===============================
+   Navigation Buttons
+================================ */
+.navButton {
+  width: 100%;
+  height: 35px;
+  background: white;
+  border: 1px solid #f0f0f0;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  color: #333;
+}
+
+.navButton:hover:not(:disabled) {
+  background-color: #f9f9f9;
+  transform: translateY(-1px);
+}
+
+.navButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===============================
+   Thumbnails
+================================ */
+.thumbnailWrapper {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 4px;
+  cursor: pointer;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: border 0.2s ease, transform 0.2s ease;
+}
+
+.thumbnailWrapper:hover {
+  transform: scale(1.05);
+  border-color: #ccc;
+}
+
+.thumbnailWrapper.selected {
+  border: 2px solid #1a73e8;
+  transform: scale(1.05);
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* ===============================
+   Main Image Wrapper - Zoom Container
+================================ */
+.mainImageWrapper {
+  flex-grow: 1;
+  background-color: white;
+  border-radius: 16px;
+  padding: 0;
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  cursor: crosshair;
+}
+
+/* ===============================
+   Main Image with Cursor-Following Zoom Effect
+================================ */
+.mainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+
+.mainImage.zoomed {
+  transform: scale(2);
+  cursor: crosshair;
+}
+
+/* ===============================
+   Zoom Indicator Icon
+================================ */
+.zoomIndicator {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.zoomIndicator.zoomActive {
+  opacity: 1;
+  visibility: visible;
+}
+
+.zoomIndicator svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ========== RESPONSIVE BREAKPOINTS ========== */
+
+/* Large Desktops (1400px+) */
+@media (min-width: 1400px) {
+  .mainImageWrapper {
+    min-height: 550px;
+  }
+
+  .thumbnailList {
+    max-height: 550px;
+  }
+
+  .thumbnailWrapper {
+    width: 90px;
+    height: 90px;
+  }
+
+  .mainImage.zoomed {
+    transform: scale(2.2);
+  }
+}
+
+/* Large Tablets and Small Desktops (900px - 1200px) */
+@media (max-width: 1200px) {
+  .galleryContainer {
+    gap: 16px;
+  }
+
+  .mainImageWrapper {
+    min-height: 450px;
+  }
+
+  .thumbnailList {
+    max-height: 450px;
+  }
+
+  .thumbnailWrapper {
+    width: 75px;
+    height: 75px;
+  }
+
+  .mainImage.zoomed {
+    transform: scale(1.9);
+  }
+}
+
+/* Tablets (768px - 900px) */
+@media (max-width: 900px) {
+  .galleryContainer {
+    gap: 14px;
+  }
+
+  .mainImageWrapper {
+    min-height: 400px;
+  }
+
+  .thumbnailList {
+    max-height: 400px;
+    gap: 10px;
+  }
+
+  .thumbnailColumn {
+    gap: 10px;
+  }
+
+  .thumbnailWrapper {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+  }
+
+  .navButton {
+    height: 32px;
+  }
+
+  .mainImage.zoomed {
+    transform: scale(1.8);
+  }
+}
+
+/* Large Phones - Horizontal Thumbnails (576px - 768px) */
+@media (max-width: 768px) {
+  .galleryContainer {
+    flex-direction: column-reverse;
+    gap: 16px;
+  }
+
+  .thumbnailColumn {
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .thumbnailList {
+    flex-direction: row;
+    max-height: none;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 10px;
+    padding: 4px 2px;
+  }
+
+  .navButton {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .navButton svg {
+    transform: rotate(-90deg);
+  }
+
+  .navButton:first-of-type svg {
+    transform: rotate(90deg);
+  }
+
+  .thumbnailWrapper {
+    width: 65px;
+    height: 65px;
+    flex-shrink: 0;
+  }
+
+  .mainImageWrapper {
+    min-height: 380px;
+    width: 100%;
+  }
+
+  .mainImage.zoomed {
+    transform: scale(1.6);
+  }
+
+  .zoomIndicator {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .zoomIndicator svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Medium Phones (480px - 576px) */
+@media (max-width: 576px) {
+  .galleryContainer {
+    gap: 14px;
+  }
+
+  .mainImageWrapper {
+    min-height: 340px;
+    border-radius: 14px;
+  }
+
+  .thumbnailColumn {
+    gap: 8px;
+  }
+
+  .thumbnailList {
+    gap: 8px;
+  }
+
+  .navButton {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+  }
+
+  .thumbnailWrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    padding: 3px;
+  }
+
+  .thumbnailImage {
+    border-radius: 6px;
+  }
+
+  .mainImage.zoomed {
+    transform: scale(1.5);
+  }
+
+  .zoomIndicator {
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .zoomIndicator svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Small Phones (below 480px) */
+@media (max-width: 480px) {
+  .galleryContainer {
+    gap: 12px;
+  }
+
+  .mainImageWrapper {
+    min-height: 300px;
+    border-radius: 12px;
+  }
+
+  .thumbnailColumn {
+    gap: 6px;
+  }
+
+  .thumbnailList {
+    gap: 6px;
+  }
+
+  .navButton {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+  }
+
+  .navButton svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .thumbnailWrapper {
+    width: 55px;
+    height: 55px;
+    border-radius: 8px;
+    padding: 2px;
+  }
+
+  .thumbnailWrapper.selected {
+    border-width: 2px;
+  }
+
+  .mainImage.zoomed {
+    transform: scale(1.4);
+  }
+
+  .zoomIndicator {
+    width: 26px;
+    height: 26px;
+  }
+
+  .zoomIndicator svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* Extra Small Phones (below 380px) */
+@media (max-width: 380px) {
+  .galleryContainer {
+    gap: 10px;
+  }
+
+  .mainImageWrapper {
+    min-height: 260px;
+    border-radius: 10px;
+  }
+
+  .thumbnailList {
+    gap: 5px;
+  }
+
+  .navButton {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+  }
+
+  .navButton svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .thumbnailWrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+  }
+
+  .mainImage.zoomed {
+    transform: scale(1.3);
+  }
+
+  .zoomIndicator {
+    display: none;
+  }
+}
+
+/* Extra Extra Small (below 320px) */
+@media (max-width: 320px) {
+  .mainImageWrapper {
+    min-height: 220px;
+  }
+
+  .navButton {
+    display: none;
+  }
+
+  .thumbnailWrapper {
+    width: 45px;
+    height: 45px;
+  }
+
+  .mainImage.zoomed {
+    transform: scale(1.2);
+  }
+}
+
+/* ========== LANDSCAPE ORIENTATION ========== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .galleryContainer {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .mainImageWrapper {
+    min-height: 280px;
+  }
+
+  .thumbnailColumn {
+    flex-direction: column;
+  }
+
+  .thumbnailList {
+    flex-direction: column;
+    max-height: 280px;
+  }
+
+  .navButton {
+    width: 100%;
+    height: 28px;
+    border-radius: 14px;
+  }
+
+  .navButton svg {
+    transform: none;
+  }
+
+  .navButton:first-of-type svg {
+    transform: none;
+  }
+
+  .thumbnailWrapper {
+    width: 55px;
+    height: 55px;
+  }
+
+  .mainImage.zoomed {
+    transform: scale(1.6);
+  }
+}
+
+/* ========== TOUCH DEVICE HANDLING ========== */
+@media (hover: none) and (pointer: coarse) {
+  .mainImageWrapper {
+    cursor: default;
+  }
+
+  .mainImage.zoomed {
+    transform: none;
+  }
+
+  .zoomIndicator {
+    display: none;
+  }
+}
+
+/* ========== ACCESSIBILITY ========== */
+@media (prefers-reduced-motion: reduce) {
+  .navButton,
+  .thumbnailWrapper,
+  .mainImage {
+    transition: none;
+  }
+}
+
+/* ========== HIGH CONTRAST MODE ========== */
+@media (prefers-contrast: high) {
+  .thumbnailWrapper {
+    border-width: 2px;
+  }
+
+  .navButton {
+    border-width: 2px;
+  }
+
+  .zoomIndicator {
+    border: 2px solid #000;
+  }
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+  .navButton,
+  .zoomIndicator {
+    display: none;
+  }
+
+  .mainImage.zoomed {
+    transform: none;
+  }
+}

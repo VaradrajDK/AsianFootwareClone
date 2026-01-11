@@ -1,0 +1,70 @@
+/* Styles/Admin/AdminMainContent.module.css */
+.admin-main-content {
+  flex: 1;
+  background: #f8fafc;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.admin-main-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.admin-main-content::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.admin-main-content::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.admin-main-content::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.content-wrapper {
+  padding: 30px;
+  min-height: 100%;
+}
+
+.content-path {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.content-path span {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.content-path .separator {
+  color: #cbd5e1;
+  font-weight: 400;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 25px 0;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 20px 15px;
+  }
+
+  .page-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+}

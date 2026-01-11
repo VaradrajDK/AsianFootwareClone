@@ -1,0 +1,257 @@
+.dashboard {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+.dashboard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.dashboard-body {
+  display: flex;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glassmorphism effect for the main layout */
+.dashboard-body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(52, 152, 219, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Custom scrollbar for the entire dashboard */
+.dashboard ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.dashboard ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.dashboard ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  border-radius: 4px;
+}
+
+.dashboard ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #2980b9, #2c3e50);
+}
+
+/* Animation for page load */
+@keyframes dashboardLoad {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dashboard {
+  animation: dashboardLoad 0.5s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .dashboard-body {
+    position: relative;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-body {
+    flex-direction: column;
+  }
+  
+  /* Mobile menu overlay effect */
+  .dashboard-body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 98;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  /* Show overlay when navbar is active on mobile */
+  .dashboard-body.menu-open::before {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Tablet specific adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .dashboard {
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .dashboard {
+    height: 100vh;
+  }
+  
+  .dashboard-body {
+    min-height: calc(100vh - 60px);
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  .dashboard {
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  }
+  
+  .dashboard::before {
+    background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+    opacity: 0.05;
+  }
+  
+  .dashboard-body::after {
+    background: radial-gradient(circle at top right, rgba(52, 152, 219, 0.1) 0%, transparent 70%);
+  }
+  
+  .dashboard ::-webkit-scrollbar-track {
+    background: #2d3748;
+  }
+}
+
+/* Print styles (optional) */
+@media print {
+  .dashboard {
+    height: auto;
+    background: white;
+  }
+  
+  .dashboard-body {
+    display: block;
+    overflow: visible;
+  }
+  
+  .dashboard ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Performance optimizations */
+.dashboard {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Loading state */
+.dashboard.loading .dashboard-body {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error state */
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.error-icon {
+  font-size: 4rem;
+  color: #e74c3c;
+  margin-bottom: 20px;
+}
+
+.error-title {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.error-message {
+  color: #6c757d;
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin: 0 auto 30px;
+}
+
+.retry-btn {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retry-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+}

@@ -1,0 +1,134 @@
+.shopFor {
+  padding: 0px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  color: #333;
+ 
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.categoryCard {
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  text-align: center;
+}
+
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.categoryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+
+
+.categoryTitle {
+  color: #000; /* Black color */
+  font-size: 15px; /* Smaller font size */
+  font-weight: 600;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .categoriesGrid {
+    gap: 20px;
+  }
+  
+  .imageContainer {
+    height: 350px;
+  }
+  
+  .sectionTitle {
+    font-size: 28px;
+  }
+  
+  .categoryTitle {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .shopFor {
+    padding: 40px 0;
+  }
+  
+  .categoriesGrid {
+    gap: 15px;
+  }
+  
+  .imageContainer {
+    height: 300px;
+    margin-bottom: 12px;
+  }
+  
+  .sectionTitle {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  .categoryTitle {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .categoriesGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .imageContainer {
+    height: 250px;
+    margin-bottom: 10px;
+  }
+  
+  .sectionTitle {
+    font-size: 20px;
+  }
+  
+  .categoryTitle {
+    font-size: 14px;
+  }
+}

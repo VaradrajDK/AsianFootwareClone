@@ -1,0 +1,107 @@
+/* pages/Cart/components/EmptyCart.module.css */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 200px);
+  padding: 40px 20px;
+}
+
+.content {
+  text-align: center;
+  max-width: 400px;
+}
+
+.iconWrapper {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 24px;
+  background: #f5f5f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartIcon {
+  width: 60px;
+  height: 60px;
+  color: #9ca3af;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 12px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0 0 32px;
+}
+
+.shopBtn {
+  display: inline-block;
+  padding: 14px 40px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.shopBtn:hover {
+  background: #333;
+}
+
+.wishlistLink {
+  display: block;
+  margin-top: 16px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #2563eb;
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.2s;
+}
+
+.wishlistLink:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .iconWrapper {
+    width: 100px;
+    height: 100px;
+  }
+
+  .cartIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .shopBtn {
+    padding: 12px 32px;
+    font-size: 13px;
+  }
+}
